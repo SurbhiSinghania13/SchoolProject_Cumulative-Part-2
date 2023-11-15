@@ -1,0 +1,20 @@
+﻿@model IEnumerable<SchoolProject.Models.CourseViewModel>
+@{
+    ViewBag.Title = "ListCourses";
+}
+
+<div>
+    <h2>List of Courses</h2>
+    @foreach (var course in Model)
+    {
+        <div>
+            <div>
+                <a href="/Teacher/ShowCourses/@course.ClassId">
+                    @course.ClassCode 
+                </a>
+            </div>
+        </div>
+    }
+</div>
+
+

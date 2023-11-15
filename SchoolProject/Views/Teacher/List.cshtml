@@ -1,0 +1,15 @@
+﻿﻿@model IEnumerable<SchoolProject.Models.Teacher>
+@{
+    ViewBag.Title = "List";
+}
+
+<div>
+    <h2>List of Teachers</h2>
+    @foreach (var teacher in Model)
+    {
+        <div>
+            <div><a href="/Teacher/Show/@teacher.TeacherId">@teacher.TeacherFname @teacher.TeacherLname</a></div>
+        </div>
+    }
+</div>
+

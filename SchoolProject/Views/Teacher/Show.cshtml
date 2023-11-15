@@ -1,0 +1,26 @@
+﻿﻿@model SchoolProject.Models.TeacherViewModel
+
+@{
+    ViewBag.Title = "Show";
+}
+
+<h2>Showing a Particular Teacher Information</h2>
+
+<a href="/Teacher/List">Back To Teachers</a>
+<div>
+    <h2>Teacher Name : @Model.Teacher.TeacherFname @Model.Teacher.TeacherLname</h2>
+    <p>Employee Number : @Model.Teacher.EmployeeNumber</p>
+    <p>Hire Date : @Model.Teacher.HireDate</p>
+    <p>Salary : @Model.Teacher.Salary</p>
+
+    <h3>Courses Taught :</h3>
+    <ul>
+        @foreach (var course in Model.Courses)
+        {
+            <li>Course ID: @course.ClassId</li>
+            <li>Course Code: @course.ClassCode</li>
+            <li>Course Name: @course.ClassName</li>
+        }
+    </ul>
+</div>
+

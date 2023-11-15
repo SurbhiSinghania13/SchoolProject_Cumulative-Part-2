@@ -1,0 +1,16 @@
+﻿@model SchoolProject.Models.CourseViewModel
+@{
+    ViewBag.Title = "ShowCourses";
+}
+
+<h2>Show Courses</h2>
+
+<div>
+    <a href="/Teacher/ListCourses">Back To Courses</a>
+    <div>
+        <h2>Course ID : @Model.ClassId </h2>
+        <p>Course Code : @Model.ClassCode</p>
+        <p>Course Name : @Model.ClassName</p>
+    </div>
+</div>
+
