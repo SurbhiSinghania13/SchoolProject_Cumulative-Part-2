@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -126,5 +127,54 @@ namespace SchoolProject.Controllers
             CourseViewModel SelectedCourse = controller.FindCourse(id);
             return View(SelectedCourse);
         }
+
+
+        //GET : /Teacher/DeleteConfirm/{id}
+        public ActionResult DeleteConfirm(int id)
+        {
+            TeacherDataController controller = new TeacherDataController();
+            Teacher NewTeacher = controller.FindTeacher(id);
+
+
+            return View(NewTeacher);
+        }
+
+
+        //POST : /Teacher/Delete/{id}
+        [HttpPost]
+        public ActionResult Delete(int id)
+        {
+            TeacherDataController controller = new TeacherDataController();
+            controller.DeleteTeacher(id);
+            return RedirectToAction("List");
+        }
+
+
+        //GET : /Teacher/New
+        public ActionResult New()
+        {
+            return View();
+        }
+
+
+        //POST : /Teacher/Create
+        [HttpPost]
+        public ActionResult Create(int TeacherId, string TeacherFname, string TeacherLname, string EmployeeNumber, decimal Salary)
+        {
+
+
+            Teacher NewTeacher = new Teacher();
+            NewTeacher.TeacherId = TeacherId;
+            NewTeacher.TeacherFname = TeacherFname;
+            NewTeacher.TeacherLname = TeacherLname;
+            NewTeacher.EmployeeNumber = EmployeeNumber;
+            NewTeacher.Salary = Salary;
+
+            TeacherDataController controller = new TeacherDataController();
+            controller.AddTeacher(NewTeacher);
+
+            return RedirectToAction("List");
+        }
+
     }
 }
